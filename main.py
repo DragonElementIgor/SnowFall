@@ -19,21 +19,21 @@ snows = []
 class Snow:
     def __init__(self, width):
         super().__init__()
-        self.y = 0
-        self.snowSize = 96
+        self.snowSize = randint(32, 40)
+        self.y = 0 - randint(self.snowSize, self.snowSize+20)
         self.image = pygame.transform.scale(pygame.image.load("snow.png").convert_alpha(), (self.snowSize, self.snowSize))
         self.x = randrange(0, width - self.snowSize, 13)
-        self.speed = randint(4, 10)
+        self.speed = randint(10, 18)
         self.tochedToGround = False
         self.timeCount = 0
 
     def draw(self, sc):
         sc.blit(self.image, (self.x, self.y))
     def move(self, height, width, snows, fps):
-        xchanche = randint(-6, 6)
+        xchanche = randint(-3, 3)
         self.timeCount += 1
         self.x += xchanche
-        if self.timeCount >= fps * 9 and self.tochedToGround:
+        if self.timeCount >= fps * 6 and self.tochedToGround:
             self.y += self.speed
         elif self.y > height:
             snows.remove(self)
@@ -41,7 +41,8 @@ class Snow:
             if self.y > (height - self.snowSize):
                 self.y -= 4
                 if not self.tochedToGround:
-                    snows.append(Snow(width))
+                    for i in range(2):
+                        snows.append(Snow(width))
                     self.tochedToGround = True
             else:
                 self.y += self.speed
