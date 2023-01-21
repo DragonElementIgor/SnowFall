@@ -8,6 +8,7 @@ width = 1600
 height = 1000
 sc = pygame.display.set_mode((width, height))
 pygame.display.set_caption("New Year!")
+pygame.display.set_icon(pygame.image.load("snow.png"))
 inWindow = True
 clock = pygame.time.Clock()
 fps = 14
@@ -19,10 +20,10 @@ snows = []
 class Snow:
     def __init__(self, width):
         super().__init__()
-        self.snowSize = randint(32, 40)
-        self.y = 0 - randint(self.snowSize, self.snowSize+15)
+        self.snowSize = randint(32, 46)
+        self.y = 0 - randint(self.snowSize, self.snowSize+20)
         self.image = pygame.transform.scale(pygame.image.load("snow.png").convert_alpha(), (self.snowSize, self.snowSize))
-        self.x = randrange(0, width - self.snowSize, 13)
+        self.x = randrange(0, width - self.snowSize, 22)
         self.speed = randint(10, 18)
         self.tochedToGround = False
         self.timeCount = 0
@@ -60,7 +61,7 @@ while inWindow:
     if len(snows) >= 260:
         bigSnows = True
     if bigSnows:
-        if len(snows) < 120:
+        if len(snows) < 160:
             bigSnows = False
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
