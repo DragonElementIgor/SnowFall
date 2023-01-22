@@ -27,7 +27,7 @@ class Snow:
         self.x += xchanche
         if self.timeCount >= fps * 6 and self.tochedToGround:
             self.y += self.speed
-        if self.y >= height or self.x < 0 or self.x > width:
+        if self.y >= height or self.x < 0 - self.snowSize or self.x > width:
             snows.remove(self)
         else:
             if self.y > (height - self.snowSize):
