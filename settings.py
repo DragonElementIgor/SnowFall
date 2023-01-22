@@ -10,6 +10,8 @@ inWindow = True
 clock = pygame.time.Clock()
 fps = 14
 bigSnows = False
-
+snowLayer = 0
+timeHotSnow = False
+sunColor = "#FFD500"
 
 snows = snowFallInit(width)
