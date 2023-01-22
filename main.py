@@ -1,10 +1,5 @@
-import pygame
-
 from settings import *
 
-pygame.mixer.music.load('bgMusic.mp3')
-pygame.mixer.music.set_volume(0.2)
-pygame.mixer.music.play(-1)
 
 while inWindow:
     sc.fill((0, 0, 0))
