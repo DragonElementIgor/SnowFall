@@ -1,3 +1,5 @@
+import pygame.image
+
 from settings import *
 
 
@@ -6,7 +8,7 @@ while inWindow:
     sc.blit(bg, (0, 0))
     if len(snows) >= 240:
         bigSnows = True
-    if snowLayer >= height/2-140:
+    if snowLayer >= maxSnowLayer:
         timeHotSnow = True
     if bigSnows:
         if len(snows) < 160:
@@ -18,8 +20,11 @@ while inWindow:
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             inWindow = False
+        key_ESC = pygame.key.get_pressed()[pygame.K_ESCAPE]
+        if key_ESC:
+            inWindow = False
     if timeHotSnow:
-        drawSun(sunColor, 70, sc, width)
+        drawSun(sunColor, 90, sc, width)
     for snow in snows:
         snows, snowLayer = snow.move(height, width, snows, fps, bigSnows, snowLayer)
         snow.draw(sc)

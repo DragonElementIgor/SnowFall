@@ -16,6 +16,7 @@ bigSnows = False
 snowLayer = 0
 timeHotSnow = False
 sunColor = "#FFD500"
+smallWindow = False
 
 pygame.mixer.music.load('bgMusic.mp3')
 pygame.mixer.music.set_volume(0.2)
