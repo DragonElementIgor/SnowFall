@@ -1,5 +1,3 @@
-import pygame.image
-
 from settings import *
 
 
@@ -16,6 +14,8 @@ while inWindow:
     if timeHotSnow:
         if snowLayer < minSnowLayer:
             timeHotSnow = False
+            maxSnowLayer = randint(height / 2 - 140, height / 2 + 30)
+            minSnowLayer = randint(135, 200)
         snowLayer -= 6
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
