@@ -12,7 +12,7 @@ while inWindow:
         if len(snows) < 160:
             bigSnows = False
     if timeHotSnow:
-        if snowLayer < 135:
+        if snowLayer < minSnowLayer:
             timeHotSnow = False
         snowLayer -= 6
     for e in pygame.event.get():

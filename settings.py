@@ -3,6 +3,8 @@ from win32api import GetSystemMetrics
 
 width = GetSystemMetrics(0)
 height = GetSystemMetrics(1)
+maxSnowLayer = randint(height/2-140, height/2 + 30)
+minSnowLayer = randint(135, 200)
 bg = pygame.transform.scale(pygame.image.load("bg.png"), (width, height))
 sc = pygame.display.set_mode((width, height))
 pygame.display.set_caption("New Year!")
